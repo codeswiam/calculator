@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;  
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator, .display, .number, 
+.button, .operator {
+    border: 2px solid black;
+}
+
+.calculator {
+    width: 70%;
+    min-width: 400px;
+    padding: 20px;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.display {
+    flex-grow: 1;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.result {
+    align-self: flex-end;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    flex-grow: 2;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 10px 0;
+    gap: 10px;
+}
+
+.numbers {
+    flex-grow:  3;
+}
+
+.buttons {
+    flex-grow: 2;
+    flex-basis:content;
+    flex-basis: 0px;
+}
+
+.numbers, .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-basis: 0px;
+}
+
+.number, .operator, .button {
+    flex-grow: 1;
+    flex-basis: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.operator {
+    background-color: black;
+    color: white;
+}
+
+.number {
+    background-color: white;
+}
+
+.zero, .decimal {
+    flex-basis: 0px;
+}
+
+.zero {
+    flex-grow: 2;
+}
+
+.decimal {
+    flex-grow: 1;
+}
+
+button {
+    box-shadow: 4px 4px 3px rgb(117, 117, 117);
+}
