@@ -44,7 +44,8 @@ numbers.forEach( number => number.addEventListener( 'click', function () {
     if (number.textContent != "." && operatorWasPressed && !numberWasPressed) {
         numberWasPressed = true;
         decimal.disabled = false;
-    } 
+    }
+    if (result.textContent.length > 0) result.textContent = "";
     operation.textContent += number.textContent;
     if (number.textContent == ".") {
         numberWasPressed = false;
@@ -57,6 +58,7 @@ numbers.forEach( number => number.addEventListener( 'click', function () {
 let operators = document.querySelectorAll('.operator');
 operators.forEach( operator => operator.addEventListener( 'click', function () {
     if (operator.textContent == "=") return;
+    if (result.textContent.length > 0) result.textContent = "";
     if (!operatorWasPressed) operatorWasPressed = true;
     // user should not be able to input two operators back to back
     if (!(/[-/x+]/).exec(operation.textContent[operation.textContent.length - 1]))
@@ -80,6 +82,9 @@ document.querySelector('.delete').addEventListener('click', function() {
 document.querySelector('.clear').addEventListener('click', function() {
     if (operation.textContent.length > 0) operation.textContent = "";
     if (result.textContent.length > 0) result.textContent = "";
+    operatorWasPressed = true;
+    numberWasPressed = false;
+    decimal.disabled = true;
 })
 
 let numberArr = [];
@@ -101,6 +106,7 @@ function calculateResult() {
         operator = operatorArr[i];
         resultValue = operate(firstNumber, operator, secondNumber);
     }
+    if (resultValue == "MATH ERROR") return resultValue;
     return resultValue.toFixed(5);
 }
 
