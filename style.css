@@ -35,6 +35,10 @@ body {
     justify-content: space-evenly;
 }
 
+.display, .result {
+    font-size: x-large;
+}
+
 .result {
     align-self: flex-end;
 }
